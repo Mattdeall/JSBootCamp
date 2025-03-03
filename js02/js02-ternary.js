@@ -71,3 +71,18 @@ let gun = "cumartesi"
 let durum = gun === "cumartesi" || gun === "pazar" ? "Haftasonu" : "Haftaiçi"
 
 console.log(durum)
+
+console.clear();
+
+console.log(4 < 5 && 5 > 3);
+console.log(true || false);
+console.log(15 % 6);
+console.log(Math.round(15.67));
+
+console.log("55" < 56);
+
+console.log("55" < 56 && 67 === "67" || 253 % 11 && !false);
+
+console.log(
+    false || 0
+)
