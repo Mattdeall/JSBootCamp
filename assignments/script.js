@@ -22,7 +22,6 @@
 //     console.log(`This was a test. You'll get ${q1} Bitcoin. And you've put a pozitive number.`);
 // }
 
-
 // 2. Write a code to determine whether a year is a leap year or not.
 
 // let q2 = prompt("Enter a date (YYYY-MM-DD")
@@ -52,3 +51,25 @@
 
 // console.log(q4age);
 // console.log(q4month);
+
+const month = +prompt("Enter a month (1-12)");
+const day = +prompt("Enter a day (1-31)");
+
+const isValidMonth = month >= 1 && month <= 12;
+const isValidDay = day >= 1 && day <= 31;
+
+if (isValidMonth && isValidDay) {
+  if ((month >= 3 && month <= 5) || (month == 2 && day >= 22)) {
+    console.log(`${month}. Month and ${day}. day is Spring`);
+  } else if ((month == 6 && day >= 21) || (month == 7) || (month == 8) || (month == 9 && day <= 21)) {
+    console.log(`${month}. Month and ${day}. day is Summer`);
+  } else if ((month == 9 && day >= 22) || (month == 10) || (month == 11) || (month == 12 && day <= 20)) {
+    console.log(`${month}. Month and ${day}. day is Fall`);
+  } else if ((month == 12 && day >= 21) || (month == 1) || (month == 2 && day <= 20)) {
+    console.log(`${month}. Month and ${day}. day is Winter`);
+  } else {
+    console.log("Invalid date");
+  }
+} else {
+  console.log("Invalid input! Please enter a valid month (1-12) and day (1-31).");
+}
