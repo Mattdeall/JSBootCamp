@@ -80,3 +80,10 @@
 // }
 
 // yasHesapla("Matt", 1990);
+
+
+function birFunction(){
+    console.log("I've declared and called a function");
+}
+
+birFunction();
