@@ -8,6 +8,7 @@ console.log("***Strings****");
 
 const str1 = "Clarusway"
 const str2 = 'Hello'
+const str11 = `Harvey`;
 
 console.log(typeof str1, typeof str2)
 
@@ -15,8 +16,8 @@ const str3 = new String("World");
 
 console.log(typeof str3)
 
-const str4 = "str44444444444444444444444444 🦕"
-
+const str4 = "🦕"
+console.log(typeof str4)
 
 //! Normalde primitive veri tiplerinin property veya metodu olmaz.
 //! Ancak Javascript  otomatik olarak primitive String'leri String object lerine dönüştürür. Bu sayede, String object lerine ait olan
@@ -27,38 +28,45 @@ const str4 = "str44444444444444444444444444 🦕"
 /*     STRING YAPISI VE INDEXLEME     */
 /* ---------------------------------- */
 
-let kelime = "Clarusway";
+let kelime = "Clarusway IT BOOTCAMP";
 
 console.log(kelime[0])
 console.log(kelime[1])
 console.log(kelime[2])
 
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i <= kelime.length-1; i++) {
     console.log(kelime[i])
 }
 // console.log(kelime[8])
 
+// Stringler, parça olarak değiştiremezsiniz
+//immutable
 
-const kelime1= "Clarusway";
-
-
-kelime1[0] = "Q";
-
-console.log(kelime1[0]);
-
+kelime[0] = "D"
+console.log(kelime)
 
 //! ************STRING PROPERTY ************
-
-
 // Property bir stringin kendi özelliğidir bir method(fonksiyon) değildir
 //parantez açıp kapatmaya gerek yoktur
 
 //? lenght
 //Prototype
 
+// *=========================================================
+// *               lenght - Property
+// *=========================================================
 console.log(kelime.length)
 
-let emoji = 
+let metin = "Clarusway  🦆"
+let emoji = "🥶"
+//Emojiler 2 karakter uzunluğundadır.
+console.log(metin.length)
+console.log(emoji.length)
+
+for (let i = 0; i < metin.length ; i++) {
+    console.log(metin[i]);
+    
+}
 
 
 
@@ -88,3 +96,311 @@ let emoji =
 // toUpperCase()	    Converts a string to uppercase letters.
 // trim()	            Removes whitespace from both ends of a string.
 // valueOf()	        Returns the primitive value of a String object.
+
+//! ************STRING METHODS ************
+// String metodları () kullanılır. (Arkaplanda fonksiyonlardır)
+//? Chaining yani zincirleme olarak birden fazla metod birlikte kullanılabilir.
+
+// *=========================================================
+// *   toLowerCase() toUpperCase() immutable=değiştirmez
+// *=========================================================
+//? Karakterleri küçük harfe dönüştürme => .toLowerCase()
+// Değişim geçicidir.Tamamen değiştirmiyor değiştirp kaydetmek istiyorsak yeni bir değere atamalıyız
+
+let metin2 = "Clarusway"
+console.log(metin2.toLowerCase())
+console.log(metin2)
+let yeniMetin = metin2.toLowerCase()
+console.log(yeniMetin)
+
+//? Karakterleri büyük harfe dönüştürme => .toUpperCase()
+console.log(metin2.toUpperCase())
+
+// let sehir = "Istanbul"
+// console.log(sehir.toLocaleLowerCase("tr-TR"))
+
+/* ---------------------------------- */
+/*    String Bİrleştirme yöntemleri   */
+/* ---------------------------------- */
+
+//* + ile birleştirme
+//* concat ile birleştirme
+//* Template literal (``) ile birleştirme
+
+let text1 = "Merhaba";
+let text2 = "JavaScript";
+
+console.log(text1 + " " + text2)
+
+let text = "merhaba"
+
+text += " Dünya"
+console.log(text)
+
+// *=========================================================
+// *               concat() immutable=değiştirmez
+// *=========================================================
+//concatanation
+
+let s1 = "Yakarsa Dünyayı"
+let s2 = " Garipler yakar"
+
+console.log(s1.concat(s2))
+
+// *=========================================================
+// *               Template Literals
+// *=========================================================
+// ES6 ile tanıtılan bu yöntem, backtick işareti (`) kullanarak string birleştirmeyi kolaylaştırır ve değişkenleri doğrudan string içinde kullanmanıza olanak tanır.
+
+let str5= "Ali"
+let str6= "Veli"
+
+console.log(str5, str6)
+
+console.log(`${str5} ve ${str6}`)
+
+console.log(`merhaba ali
+nasılsın
+iyimisin?`.length)
+
+// //! Heap Stack Örneği
+
+// let a = 10
+// let b = a
+// console.log(b)
+// a = 55
+// console.log(b)
+
+// let x = [1,2,3,4,5]
+// let y = x
+// x[0]= 55
+// console.log(x)
+// console.log(y)
+
+// *=========================================================
+// *                 split() immutable
+// *=========================================================
+// Stringi belirtilen şekilde parçalara ayırır ve parçalarını bir diziye aktarır
+// str.split(seperator)
+// saparator : ayraç
+//! Parçaladığı elemanları bir diziye aktarır.
+
+let metin1 = "Clarusway IT Bootcamp Harvey"
+
+console.log(metin1.split(" "))
+console.log(metin1)
+let parcalanmısMetin = metin1.split(" ")
+console.log(parcalanmısMetin)
+
+for (let i = 0; i < parcalanmısMetin.length; i++) {
+    if (parcalanmısMetin[i] === "Harvey") {
+        console.log("Bu cümlede Harvey kelimesi geçiyor");
+    }else{
+        // console.log("Bu cümlede Harvey kelimesi geçmiyor")
+    }
+}
+
+// Verilen tarih bilgisini gün ay ve yıl olarak ayırma
+
+let date = "12.03.2025"
+let newDate = date.split(".")
+console.log(newDate)
+let gun = newDate[0]
+let ay = newDate[1]
+let yil = newDate[2]
+console.log("Gün:",gun)
+console.log("Ay:",ay)
+console.log("Yıl:",yil)
+
+
+let months =  "Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec";
+let newMounth = months.split(" / ")
+console.log(newMounth);
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                               //? Join metodu                              */
+/* -------------------------------------------------------------------------- */
+// String metodu değildir
+// Javascript dilinde join metodu, biz dizi elemanı string olarak birleştirir. Join metodu dizi (array) alarak bunu virgül gibi bir karakter ile ayırarak string'e dönüştürür.
+
+console.log(newMounth.join("_"))
+
+/* -------------------------------------------------------------------------- */
+//?                               Reverse Metodu                              */
+/* -------------------------------------------------------------------------- */
+
+// String metodu değildir
+// reverse methodu ile bir diziyi tersine çevirebilmekteyiz. Dizi içerisindeki ilk değeri son, Son değeri ise ilk sıraya şeklinde sıralayabilmekteyiz.
+
+// Bir kelimeyi tersten yazdıran program
+
+let kelime1 = "Merhaba";
+console.log(kelime1.split("").reverse().join(""))
+//! kelime1 is a string first splitted it to an array, then reverse the array, and then join which returns a string again
+
+let sentence = "Yahşi günde yar yahşidir yaman günde yetiş gardaş";
+
+console.log(sentence.split(" ").reverse().join());
+
+//! polindrom = tersi ve düzü aynı olan kelimeler
+
+let kelime2 = "Madam";
+
+let mesaj = kelime2.toLowerCase() === kelime2.split("").reverse().join("").toLowerCase();
+console.log(mesaj);
+
+/* ---------------------------------- */
+/*                Slice               */
+/* ---------------------------------- */
+//! Slice Metodu
+//? String içinde bir bölümü almak için kullanılır.
+// Slice(başlangıç index numarası, bitiş index numarası(bu numara dahil değildir))
+//? Negatif indexler çalışır
+
+let sent = "Merhaba cohort 19";
+
+let slicedSent = sent.slice(0,7);
+slicedSent = sent.slice(8,14);
+
+console.log(slicedSent);
+
+console.log(sent.slice(-9,-3));
+
+/* ---------------------------------- */
+/*              Substring             */
+/* ---------------------------------- */
+//! substring(başlangıç index numarası,bitiş index numarası) 
+//Slicedan farkı negatif sayı kullanılmaz
+
+console.log(sent.substring(0,7))
+
+/* ---------------------------------- */
+/*               Substr               */
+/* ---------------------------------- */
+//! substr(başlangıç index numarası,kaç adet karakter alınacağı)
+
+console.log(sent.substr(8,6));
+
+/* ---------------------------------- */
+/*!   String içinde arama işlemleri   */
+/* ---------------------------------- */
+
+// includes, indexOf, search ,match  metodlarını kullanabiliriz
+
+/* ---------------------------------- */
+/*              includes              */
+/* ---------------------------------- */
+
+//? includes()   ... yı içeriyor mu -> true yada false bir değer döndürür.
+//? caseSensitive bir özelliktir.
+
+//!INCLUDE (İçeriyor mu içermiyor mu);
+
+//? Case sensitive bir metot
+
+let cumle = "TO BE or not to be, That is The question"
+
+console.log(cumle.includes("To BE"))//returns false. To prevent this general practise is to use with touppercase or to lower case methods
+
+console.log(cumle.toLowerCase().includes("to be"))// true
+
+let url = "https://wwww.clarusway.com";
+
+let msg = url.includes("https") ? console.log("Secure") : console.log("Not Secure");
+
+
+//! INDEX OF
+
+/* ---------------------------------- */
+/*               İndexOf              */
+/* ---------------------------------- */
+//? indexOf (aranacak metin, konum) Bir karakter yada karakter grubumun kaçıncı sırada olduğunu yani index numarasını verir. Eğer o karakter yoksa olmadığını -1 değeri vererek gösterir. Büyük küçük harfe duyarlıdır. Sadece ilk gördüğünün index numarasını verir
+
+
+console.log(cumle.indexOf("be"));
+
+console.log(cumle.indexOf("ç"));
+
+//! SEARCH
+
+/* ---------------------------------- */
+/*               Search               */
+/* ---------------------------------- */
+//? ilk parametre aranan string, ikincisi hangi indexten sonra aranacak
+
+console.log(cumle.search("be"));
+console.log(cumle.search("ç"));
+
+
+//!REGEX- regular expression 
+// Regex regular expression denir. Bunların yazım stili / işaretiyledir.
+
+// Flags Kullanımı
+// Düzenli ifadelerde çeşitli bayraklar kullanarak aramayı değiştirebiliriz:
+
+// g : Global arama
+// i : Büyük/küçük harf duyarsız arama
+let variable = "HarveyWatson"
+console.log(variable.search(/w/i))
+
+// [A-Z], [a-z] [0-9] 
+
+let cumle5 = "to be or not To be, 450 That is The question 15"
+console.log(cumle5.search(/[A-Z]/g))
+console.log(cumle5.search(/[a-z]/g))
+console.log(cumle5.search(/[0-9]/g))
+
+// ^  olmayan
+console.log(cumle5.search(/[^a-z]/))
+
+/* ---------------------------------- */
+/*                 match              */
+/* ---------------------------------- */
+
+//?match metodu, bir dize içindeki bir düzenli ifadeye (RegEx) uyan kısımları bulur ve bir dizi olarak döner.
+// Bir dizi dönderir
+
+let phone = "My phone number is 234-567-8910"
+let result = phone.match(/\d+/g)
+console.log(result)
+
+let text3 = "Contact us at support@example.com or sales@example.com";
+
+let emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+
+let emails = text3.match(emailPattern);
+console.log(emails)
+
+/* ---------------------------------- */
+/* startsWith(), endsWith() -- case sensitive */
+/* ---------------------------------- */
+
+// startsWith :.. ile başlıyormu (True , false)
+// endsWith :.. ile başlıyormu (True , false)
+
+console.log(phone.startsWith("My"))//returns boolean
+
+console.log(phone.endsWith("1"))
+
+//! STRINGLERDE DEĞİŞİKLİK YAPMAK
+
+
+//! REPLACE (Immutable)
+
+let text4 = "Hello World, Who are you World";
+
+console.log(text4.replace("World", "Javascript"));
+
+
+//! TRIM Method
+
+//? trims the spaces at the end an in the beginning
+
+let metin3 = "    Clarusway   ";
+
+console.log(metin3);
+console.log(metin3.trim());
+
+let yeniMetin3 = metin3.trim();
